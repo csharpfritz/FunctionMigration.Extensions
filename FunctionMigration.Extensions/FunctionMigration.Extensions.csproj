@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Storage.Queues" Version="12.11.1" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
+		<PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.10.0" />
+		<PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.33" />
+		<PackageReference Include="Verlite.MsBuild" Version="2.4.0" PrivateAssets="All" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<PackageId>FunctionMigration.Extensions</PackageId>
+		<Authors>Jeffrey T. Fritz</Authors>
+		<Description>A collection of components and extensions methods to make it easier to migrate Azure Functions to .NET 7</Description>
+		<Copyright>Copyright Jeffrey T. Fritz 2019-2022</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/csharpfritz/FunctionMigration.Extensions</PackageProjectUrl>
+		<PackageTags>azure functions azurefunctions</PackageTags>
+		<!--<PackageIcon>logo128.png</PackageIcon>-->
+		<RepositoryUrl>https://github.com/csharpfritz/FunctionMigration.Extensions</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+	</PropertyGroup>
+
+</Project>
