@@ -34,7 +34,7 @@ There's so much I like about this method working in Azure Functions... and so mu
 With the current 0.1 version, the above function can be adapted to this format and behave the same:
 
 ```csharp
-[Function("GetClips")]
+[FunctionName("GetClips")]
 public async Task<HttpResponseData> GetClips(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequestData req)
 {
@@ -57,10 +57,10 @@ public async Task<HttpResponseData> GetClips(
 - A collection of extension methods for HttpRequestData to allow similar ActionResult method types that you may have previously been using
 - Extension methods that allow access to Query, Form, and Headers using similar syntax to what you previously used with HttpRequest
 - QueueCollector class that will help you replace Queue bindings quickly with ICollector / IAsyncCollector syntax
+- Global FunctionName alias that re-routes your existing FunctionName attributes to the new Function attribute.  No re-write needed
 
 ## What's planned
 
 - Analyzers and code fixers to help identify changes to be made and help you apply fixes quickly.
 - Headers write methods so you can re-use Headers syntax used with HttpRequest
-- FunctionName attribute subclass that re-routes your existing FunctionName attributes to the new Function attribute.  No re-write needed
 - Docs with step-by-step instructions to migrate to the new project format
