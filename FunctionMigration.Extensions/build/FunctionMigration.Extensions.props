@@ -1,0 +1,5 @@
+<Project>
+ <ItemGroup>
+   <Using Include="Microsoft.Azure.Functions.Worker.FunctionAttribute" Alias="FunctionName"  />
+ </ItemGroup>
+</Project>

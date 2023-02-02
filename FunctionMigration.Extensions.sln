@@ -5,6 +5,14 @@ VisualStudioVersion = 17.5.33318.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionMigration.Extensions", "FunctionMigration.Extensions\FunctionMigration.Extensions.csproj", "{3B3ECCE4-9436-48C0-BC5E-CE3FED808484}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.InProcessFunction", "Test.InProcessFunction\Test.InProcessFunction.csproj", "{87179F18-59FD-4FCC-96B4-B0623F6465A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Z. Function Projects", "Z. Function Projects", "{C8343EC2-A51E-4935-9F2D-11E6031991B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Source", "1. Source", "{11A5B8D3-391E-4F22-8217-3023E828943D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.IsolatedFunctions", "Test.IsolatedFunctions\Test.IsolatedFunctions.csproj", "{0638C64D-0970-48CF-BFBE-F2430921F39D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +23,22 @@ Global
 		{3B3ECCE4-9436-48C0-BC5E-CE3FED808484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3ECCE4-9436-48C0-BC5E-CE3FED808484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3ECCE4-9436-48C0-BC5E-CE3FED808484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87179F18-59FD-4FCC-96B4-B0623F6465A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87179F18-59FD-4FCC-96B4-B0623F6465A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87179F18-59FD-4FCC-96B4-B0623F6465A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87179F18-59FD-4FCC-96B4-B0623F6465A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0638C64D-0970-48CF-BFBE-F2430921F39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0638C64D-0970-48CF-BFBE-F2430921F39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0638C64D-0970-48CF-BFBE-F2430921F39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0638C64D-0970-48CF-BFBE-F2430921F39D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B3ECCE4-9436-48C0-BC5E-CE3FED808484} = {11A5B8D3-391E-4F22-8217-3023E828943D}
+		{87179F18-59FD-4FCC-96B4-B0623F6465A7} = {C8343EC2-A51E-4935-9F2D-11E6031991B1}
+		{0638C64D-0970-48CF-BFBE-F2430921F39D} = {C8343EC2-A51E-4935-9F2D-11E6031991B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2930D5AE-F24F-472A-A865-DA2566A0597C}

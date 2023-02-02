@@ -8,6 +8,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="dist\**" />
+	  <EmbeddedResource Remove="dist\**" />
+	  <None Remove="dist\**" />
+		<None Remove="build\**\*" />
+		<Content Include="build\**\*" PackagePath="build" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Azure.Storage.Queues" Version="12.11.1" />
 		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
