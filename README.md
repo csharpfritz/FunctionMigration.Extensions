@@ -59,6 +59,11 @@ public async Task<HttpResponseData> GetClips(
 - QueueCollector class that will help you replace Queue bindings quickly with ICollector / IAsyncCollector syntax
 - Global FunctionName alias that re-routes your existing FunctionName attributes to the new Function attribute.  No re-write needed
 
+## What migrations are supported?
+
+1. HTTP triggered functions that return IActionResult 
+2. Functions that bind to an `ICollector` or `IAsyncCollector` parameter to interact with an Azure Storage Queue
+
 ## What's planned
 
 - Analyzers and code fixers to help identify changes to be made and help you apply fixes quickly.
