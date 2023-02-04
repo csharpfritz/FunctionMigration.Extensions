@@ -10,7 +10,19 @@ Azure Functions for .NET with .NET 7 only run in _isolated mode_ and require a c
 
 ### 3. Set configuration for dotnet_isolated
 
+Add a configuration setting to the `values` node in your `local.settings.json` file, and eventually to production application, to instruct the application to run in isolated mode.
+
+```json
+"FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+```
+
 ### 4. Add the FunctionMigrations package
+
+Execute the following at the command-line to add the FunctionMigrations package to your functions project:
+
+```console
+dotnet add package FunctionMigrations.Extensions
+```
 
 ### Results
 
