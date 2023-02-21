@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Web;
 
@@ -21,6 +22,19 @@ public static class HttpRequestDataExtensions
 	{
 		var query = HttpUtility.ParseQueryString(req.Url.Query);
 		return query[key];
+	}
+
+	public static Dictionary<string,string?> Query(this HttpRequestData req)
+	{
+		var query = HttpUtility.ParseQueryString(req.Url.Query);
+
+		var outDict = new Dictionary<string, string?>();
+		foreach (string key in query.Keys)
+		{
+			outDict.Add(key, query[key]);
+		}
+		return outDict;
+
 	}
 
 	public static IEnumerable<string> Header(this HttpRequestData req, string key)
