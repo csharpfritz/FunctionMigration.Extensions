@@ -13,6 +13,7 @@
 	  <None Remove="dist\**" />
 		<None Remove="build\**\*" />
 		<Content Include="build\**\*" PackagePath="build" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -36,6 +37,7 @@
 		<!--<PackageIcon>logo128.png</PackageIcon>-->
 		<RepositoryUrl>https://github.com/csharpfritz/FunctionMigration.Extensions</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 </Project>
