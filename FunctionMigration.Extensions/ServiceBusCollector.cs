@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace FunctionMigration.Extensions;
 
-public class ServiceBusCollector<T> : ICollector<T>, IAsyncCollector<T> {
+public class ServiceBusCollector<T> : IAsyncCollector<T> {
 
 	private ServiceBusClient _Client;
 
@@ -38,31 +38,16 @@ public class ServiceBusCollector<T> : ICollector<T>, IAsyncCollector<T> {
 		}
 	}
 
-	public void Add(T item) {
-
-		if (item == null) return;
-		if (_Client == null) _Client = new ServiceBusClient(ConnectionString);
-
-		if (typeof(T).IsValueType) {
-			_Client.CreateSender(QueueName).SendMessageAsync(new ServiceBusMessage());
-		}
-		else {
-			_Client.SendMessage(JsonSerializer.Serialize(item));
-		}
-
-	}
-
 	public Task AddAsync(T item, CancellationToken cancellationToken = default) {
 
 		if (item == null) return Task.CompletedTask;
-		if (_Client == null) _Client = new QueueClient(ConnectionString, QueueName);
-		_Client.CreateIfNotExists();
+		if (_Client == null) _Client = new ServiceBusClient(ConnectionString);
 
 		if (typeof(T).IsValueType) {
-			return _Client.SendMessageAsync(item.ToString(), cancellationToken);
+			return _Client.CreateSender(QueueName).SendMessageAsync(new ServiceBusMessage(item.ToString()), cancellationToken);
 		}
 		else {
-			return _Client.SendMessageAsync(JsonSerializer.Serialize(item), cancellationToken);
+			return _Client.CreateSender(QueueName).SendMessageAsync(new ServiceBusMessage(JsonSerializer.Serialize(item)), cancellationToken);
 		}
 
 	}
