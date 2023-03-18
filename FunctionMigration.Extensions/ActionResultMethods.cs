@@ -77,7 +77,7 @@ public static class ActionResultMethods
 	{
 		var res = req.CreateResponse();
 
-		if (value is not null && value.GetType().IsValueType) {
+		if (value is not null && (value.GetType().IsValueType || value is string)) {
 			res.WriteString(value.ToString()!);
 		} else if (value is not null && !value.GetType().IsValueType) {
 			res.WriteAsJsonAsync(value);
@@ -89,7 +89,7 @@ public static class ActionResultMethods
 	{
 
 		var res = context.GetHttpResponseData();
-		if (value is not null && value.GetType().IsValueType) {
+		if (value is not null && (value.GetType().IsValueType || value is string)) {
 			res.WriteString(value.ToString()!);
 		}
 		else if (value is not null && !value.GetType().IsValueType) {
