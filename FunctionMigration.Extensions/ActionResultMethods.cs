@@ -76,7 +76,12 @@ public static class ActionResultMethods
 	public static HttpResponseData OkObjectResult(this HttpRequestData req, object value)
 	{
 		var res = req.CreateResponse();
-		res.WriteAsJsonAsync(value);
+
+		if (value is not null && value.GetType().IsValueType) {
+			res.WriteString(value.ToString()!);
+		} else if (value is not null && !value.GetType().IsValueType) {
+			res.WriteAsJsonAsync(value);
+		}
 		return res;
 	}
 
@@ -84,7 +89,12 @@ public static class ActionResultMethods
 	{
 
 		var res = context.GetHttpResponseData();
-		res.WriteAsJsonAsync(value);
+		if (value is not null && value.GetType().IsValueType) {
+			res.WriteString(value.ToString()!);
+		}
+		else if (value is not null && !value.GetType().IsValueType) {
+			res.WriteAsJsonAsync(value);
+		}
 		return res;
 
 	}

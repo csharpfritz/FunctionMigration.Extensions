@@ -1,8 +1,8 @@
 <Project>
  <ItemGroup>
 	 <Using Include="Microsoft.Azure.Functions.Worker.FunctionAttribute" Alias="FunctionName"  />
-	 <Using Include="Microsoft.Azure.WebJobs.QueueTriggerAttribute" Alias="QueueTrigger"  />
+	 <!--<Using Include="Microsoft.Azure.WebJobs.QueueTriggerAttribute" Alias="QueueTrigger"  />
 	 <Using Include="Microsoft.Azure.WebJobs.TimerTriggerAttribute" Alias="TimerTrigger"  />
-	 <Using Include="Microsoft.Azure.WebJobs.TimerInfo" Alias="TimerInfo"  />
+	 <Using Include="Microsoft.Azure.WebJobs.TimerInfo" Alias="TimerInfo"  />-->
  </ItemGroup>
 </Project>
