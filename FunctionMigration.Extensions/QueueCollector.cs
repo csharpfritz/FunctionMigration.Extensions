@@ -48,7 +48,7 @@ public class QueueCollector<T> : ICollector<T>, IAsyncCollector<T>
 		if (_Client == null) _Client = new QueueClient(ConnectionString, QueueName);
 		_Client.CreateIfNotExists();
 
-		if (typeof(T).IsValueType)
+		if (typeof(T).IsValueType || item is string)
 		{
 			_Client.SendMessage(item.ToString());
 		}

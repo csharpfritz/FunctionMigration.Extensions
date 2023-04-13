@@ -43,7 +43,7 @@ public class ServiceBusCollector<T> : IAsyncCollector<T> {
 		if (item == null) return Task.CompletedTask;
 		if (_Client == null) _Client = new ServiceBusClient(ConnectionString);
 
-		if (typeof(T).IsValueType) {
+		if (typeof(T).IsValueType || item is string) {
 			return _Client.CreateSender(QueueName).SendMessageAsync(new ServiceBusMessage(item.ToString()), cancellationToken);
 		}
 		else {
