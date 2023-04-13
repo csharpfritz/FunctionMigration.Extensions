@@ -45,7 +45,7 @@ public class QueueCollector<T> : ICollector<T>, IAsyncCollector<T>
 	{
 
 		if (item == null) return;
-		if (_Client == null) _Client = new QueueClient(ConnectionString, QueueName);
+		if (_Client == null) _Client = new QueueClient(ConnectionString, QueueName, new QueueClientOptions { MessageEncoding = QueueMessageEncoding.Base64 });
 		_Client.CreateIfNotExists();
 
 		if (typeof(T).IsValueType || item is string)
@@ -63,10 +63,10 @@ public class QueueCollector<T> : ICollector<T>, IAsyncCollector<T>
 	{
 
 		if (item == null) return Task.CompletedTask;
-		if (_Client == null) _Client = new QueueClient(ConnectionString, QueueName);
+		if (_Client == null) _Client = new QueueClient(ConnectionString, QueueName, new QueueClientOptions { MessageEncoding = QueueMessageEncoding.Base64 });
 		_Client.CreateIfNotExists();
 
-		if (typeof(T).IsValueType)
+		if (typeof(T).IsValueType || item is string)
 		{
 			return _Client.SendMessageAsync(item.ToString(), cancellationToken);
 		}
