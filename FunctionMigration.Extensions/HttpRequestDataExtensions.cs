@@ -12,6 +12,7 @@ public static class HttpRequestDataExtensions
 	public static string Form(this HttpRequestData req, string key)
 	{
 
+		req.Body.Position = 0;
 		var formData = new FormReader(req.Body).ReadFormAsync().GetAwaiter().GetResult();
 		// var formData = new FormCollection(JsonSerializer.Deserialize<Dictionary<string, Microsoft.Extensions.Primitives.StringValues>>(requestBody));
 		return formData[key];
